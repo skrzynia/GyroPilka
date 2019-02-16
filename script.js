@@ -11,7 +11,9 @@ let przeszkoda;
 window.requestAnimationFrame = function () {
     return window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
-    window.setTimeout(callback, 1000/60);
+    function(callback , element) {
+        window.setTimeout(callback, 1000/60);
+    }
 }
 
 window.onload = function () {
@@ -54,6 +56,13 @@ function rysujPilke() {
     context.fill();
 }
 
+function start() {
+rysujPilke();
+rysujPrzeszkode();
+zdarzenia();
+}
+
+
 function zdarzenia() {
     window.addEventListener('deviceorientation',function(event) {
         przyspieszenie.x = Math.round(event.beta);
@@ -85,16 +94,5 @@ function zdarzenia() {
     pilka.y = pozycja.y
 
     requestAnimationFrame(zdarzenia);
-
-
 }
-
-
-function start() {
-rysujPilke();
-rysujPrzeszkode();
-zdarzenia();
-}
-
-
 
