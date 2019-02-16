@@ -10,6 +10,7 @@ let przeszkoda;
 
 window.requestAnimationFrame = function () {
     return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
     window.setTimeout(callback, 1000/60);
 }
 
