@@ -53,13 +53,6 @@ function rysujPilke() {
     context.fill();
 }
 
-function start() {
-rysujPilke();
-rysujPrzeszkode();
-zdarzenia();
-}
-
-
 function zdarzenia() {
     window.addEventListener('deviceorientation',function(event) {
         przyspieszenie.x = Math.round(event.beta);
@@ -94,4 +87,13 @@ function zdarzenia() {
 
 
 }
+
+
+function start() {
+rysujPilke();
+rysujPrzeszkode();
+zdarzenia();
+}
+
+
 
