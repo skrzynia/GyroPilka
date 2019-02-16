@@ -59,17 +59,17 @@ function rysujPilke() {
 function start() {
 rysujPilke();
 rysujPrzeszkode();
-zdarzenia();
+window.ondeviceorientation = function() {
+    zdarzenia(window.ondeviceorientation);
+}
+
 }
 
 
-function zdarzenia() {
-    window.addEventListener('deviceorientation',function(event) {
-        przyspieszenie.x = Math.round(event.beta);
-        przyspieszenie.y = Math.round(event.gamma);
-    });
+function zdarzenia(e) {
+        przyspieszenie.x = Math.round(e.beta);
+        przyspieszenie.y = Math.round(e.gamma);
     
-
     pozycja.x += przyspieszenie.x;
     pozycja.y += przyspieszenie.y;
 
